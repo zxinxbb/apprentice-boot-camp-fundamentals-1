@@ -1,8 +1,5 @@
 package cards;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Cards {
     public static void main(String[] args) {
         Cards cards = new Cards();
@@ -14,12 +11,10 @@ public class Cards {
 
     public String[] getCards() {
         String[] result = new String[52];
-        PlayingCard[] deck = new PlayingCard[52];
+        PlayingCardDeck deck = new PlayingCardDeck();
         String suitName = "";
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
-                //suit is either 0,1,2,3 and we need to return a suit.
-                //then need a string to suit method
 
                 switch (suit){
                     case 0: suitName = "clubs"; break;
@@ -28,11 +23,11 @@ public class Cards {
                     case 3: suitName = "spades"; break;
                 }
                 Suit newSuit = new Suit(suitName);
-               deck[suit*13+faceValue] = new PlayingCard(newSuit, faceValue);
+               deck.getPlayingCards()[suit*13+faceValue] = new PlayingCard(newSuit, faceValue);
             }
         }
         int cardNumber = 0;
-        for (PlayingCard card : deck) {
+        for (PlayingCard card : deck.getPlayingCards()) {
             String faceValueName;
             switch (card.getFaceValue()){
                 case 0: faceValueName = "ace"; break;
