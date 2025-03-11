@@ -1,11 +1,11 @@
 package cards;
 
 public class PlayingCard {
-    private int suit;
+    private Suit suit;
     private int faceValue;
 
 
-    public PlayingCard(int suit, int faceValue) {
+    public PlayingCard(Suit suit, int faceValue) {
         this.suit = suit;
         this.faceValue = faceValue;
     }
@@ -14,7 +14,9 @@ public class PlayingCard {
         return faceValue;
     }
 
-    public int getSuit() {
+    public Suit getSuit() {
         return suit;
     }
+
+
 }
