@@ -13,7 +13,7 @@ public class Cards {
 
     public String[] getCards() {
         String[] result = new String[52];
-        PlayingCardDeck deck = new PlayingCardDeck().createsOrderedDeck();
+        PlayingCardDeck deck = new PlayingCardDeck();
         int cardNumber = 0;
 
         for (PlayingCard card : deck.getPlayingCards()) {

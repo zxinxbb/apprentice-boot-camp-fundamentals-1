@@ -1,15 +1,19 @@
 package cards;
 
-public class PlayingCardDeck {
-    private PlayingCard[] playingCards = new PlayingCard[52];
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class PlayingCardDeck implements Deck {
+    private List<PlayingCard> playingCards;
 
 
-    public PlayingCard[] getPlayingCards() {
+    public List<PlayingCard> getPlayingCards() {
         return playingCards;
     }
 
-    public PlayingCardDeck createsOrderedDeck() {
-        PlayingCardDeck deck = new PlayingCardDeck();
+    public PlayingCardDeck() {
+        playingCards = new ArrayList<>();
         String suitName = "";
         for (int suit = 0; suit < 4; suit++) {
             for (int faceValue = 0; faceValue < 13; faceValue++) {
@@ -29,9 +33,26 @@ public class PlayingCardDeck {
                         break;
                 }
                 Suit newSuit = new Suit(suitName);
-                deck.getPlayingCards()[suit * 13 + faceValue] = new PlayingCard(newSuit, faceValue);
+                playingCards.add(new PlayingCard(newSuit, faceValue));
             }
         }
-        return deck;
+    }
+
+
+    public void shuffle() {
+       Collections.shuffle(playingCards);
+    }
+
+    public String[] getCards() {
+        String[] result = new String[playingCards.size()];
+        for (int i = 0; i < playingCards.size(); i++) {
+            Card card = playingCards.get(i);
+            result[i] = card.toString();
+        }
+        return result;
+    }
+
+    public Card deal() {
+        return playingCards.remove(0);
     }
 }

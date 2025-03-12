@@ -14,7 +14,9 @@ class Snap {
 
     public static void main(String[] args) {
         Snap snap = new Snap(new AnimalDeck());
-        snap.play();
+        Snap snapPlayingCard = new Snap(new PlayingCardDeck());
+
+        snapPlayingCard.play();
     }
 
     void play() {
@@ -23,7 +25,7 @@ class Snap {
         Card previousCard = null;
         while (deck.getCards().length > 0) {
             Card currentCard = deck.deal();
-            System.out.println(currentCard);
+            System.out.println(currentCard.toString());
             String input = scanner.nextLine();
             if (!input.isEmpty() && input.charAt(0) == 'a') {
                 if (currentCard.snap(previousCard)) {
