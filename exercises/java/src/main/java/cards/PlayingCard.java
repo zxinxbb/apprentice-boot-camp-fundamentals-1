@@ -1,6 +1,6 @@
 package cards;
 
-public class PlayingCard {
+public class PlayingCard implements Card {
     private Suit suit;
     private int faceValue;
 
@@ -18,5 +18,7 @@ public class PlayingCard {
         return suit;
     }
 
-
+    public boolean snap(Card card) {
+        return card instanceof PlayingCard && this.faceValue == (((PlayingCard) card).faceValue);
+    }
 }
