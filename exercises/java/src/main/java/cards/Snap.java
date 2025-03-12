@@ -20,7 +20,7 @@ class Snap {
     void play() {
         Scanner scanner = new Scanner(System.in);
 
-        AnimalCard previousCard = null;
+        Card previousCard = null;
         while (deck.getCards().length > 0) {
             AnimalCard currentCard = deck.deal();
             System.out.println(currentCard);
